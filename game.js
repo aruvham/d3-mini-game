@@ -4,7 +4,7 @@ var svg = d3.select("svg"),
     w = +svg.attr("width"),
     h = +svg.attr("height"),
     size = 30,
-    radius = radius,
+    radius = (size/2),
     rows = h / size,
     cols = w / size;
 
@@ -39,7 +39,7 @@ Game = {
   fps: 60,
   fCounter: 0,
   circles: [],
-  nBalls: 1,
+  nBalls: 50,
 
   init: () => {
     for(var i = 0; i < Game.nBalls; i++) {
@@ -69,22 +69,21 @@ Game = {
   update: () => {
     Game.fCounter++;
     d3.select(".frameCounter").text("Frame " + Game.fCounter);
-
     Game.updateCircles();
     Game.renderCircles();
   },
 
   updateCircles: () => {
     //debugger;
-    Game.circles.forEach((circle) => {circle.update()}
+    Game.circles.forEach((circle) => circle.update());
   },
 
   renderCircles: () => {
     svg.selectAll("circle")
       .data(Game.circles)
       .attr("cx", (d) => d.pos.x)
-      .attr("cy", (d) => d.pos.y);
-      //.style("fill", (d) => d.color);
+      .attr("cy", (d) => d.pos.y)
+      .style("fill", (d) => d.color);
   },
 
   createCircles: () => {
@@ -103,23 +102,22 @@ Game = {
 var Circle = function(x, y, dx, dy) {
   this.pos = { x: x, y: y };
   this.vel = { x: dx, y: dy };
-  this.color = /*randomColor();*/"red";
+  this.color = randomColor();
 }
 
-Circle.prototype.update = () => {
+Circle.prototype.update = function() {
   // collision detection with wall
-  /*if(this.pos.x + this.vel.x > w - (radius) || this.pos.x + this.vel.x < (radius)) {
+  if(this.pos.x + this.vel.x > w - (radius) || this.pos.x + this.vel.x < (radius)) {
     this.vel.x *= -1;
-    //this.color = randomColor();
-  } else*/
-  /*if(this.pos.y + this.vel.y > h - (radius) || this.pos.y + this.vel.y < (radius)) {
+    this.color = randomColor();
+  } else
+  if(this.pos.y + this.vel.y > h - (radius) || this.pos.y + this.vel.y < (radius)) {
     this.vel.y *= -1;
-    //this.color = randomColor();
+    this.color = randomColor();
   } else {
     this.pos.x += this.vel.x;
     this.pos.y += this.vel.y;
-  }*/
-  console.log(this)
+  }
 }
 
 /* Helper functions */
@@ -131,12 +129,12 @@ var dist = (x1, y1, x2, y2) => {
 }
 
 var random = (min, max) => {
-  return Math.floor(Math.random() * min) + max;
+  return Math.floor(Math.random() * max) + min;
 }
 
 var randomColor = () => {
   var g = random(0, 255);
   var r = random(0, 255);
   var b = random(0, 255);
-  return `rgb({g},{r},{b})`;
+  return `rgb(${g},${r},${b})`;
 }
