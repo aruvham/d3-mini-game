@@ -43,6 +43,8 @@ Game = {
   },
 
   pause: () => {
+    svg.selectAll("image")
+    .classed("pausedImage", true);
     clearInterval(Game._interval);
   },
 
@@ -170,10 +172,6 @@ Game = {
       .attr("y", (d) => d.y - size)
       .attr("width", size * 2)
       .attr("height", size * 2)
-      /*.transition()
-      .duration(2000)
-      //.ease('linear')
-      .attrTween("transform", tween);*/
   },
 
   spawnBurger: () => {
@@ -371,5 +369,5 @@ var randomColor = () => {
 }
 
 function tween(d, i, a) {
-  return d3.interpolateString("rotate(0, 0, 0)", "rotate(360, 0, 0)");
+  return d3.interpolateString("rotate(0)", "rotate(45)");
 }
