@@ -1,0 +1,63 @@
+/*.ninja {
+  -webkit-transform: rotate(360deg);
+  -webkit-animation-name:rotate;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -webkit-transform-origin: 50% 50%;
+}*/
+
+body {
+    text-align: center;
+    background: #343642;
+    font-family: 'Raleway', sans-serif;
+}
+
+.wrapper {
+  display: block;
+  width: 900px;
+  height: 100%;
+  margin: 50px 100px;
+}
+
+svg {
+  display: block;
+  border: 5px solid black;
+  cursor: none;
+  box-sizing: border-box;
+  margin-bottom: 5%;
+}
+
+h1 {
+  display: block;
+  width: 500px;
+  margin: 2.5% auto;
+  font-size: 2.5em;
+  background: url('https://dl.dropboxusercontent.com/s/rg4anqe8yquo5mh/texture.png?dl=0') top left;
+  color: white;
+  box-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.button {
+  width: 250px;
+  height: 50px;
+  font-size: 2em;
+  background-color: #348899;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  text-align: center;
+}
+
+.button:hover {
+  background: #000;
+  color: #348899;
+}
+
+.button:link,
+.button:visited,
+.button:hover,
+.button:active {
+  text-decoration: none;
+}
