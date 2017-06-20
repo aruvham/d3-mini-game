@@ -1,34 +1,3 @@
-@-webkit-keyframes rotate {
-  from {
-      -webkit-transform: rotate(0deg);
-  }
-  to {
-      -webkit-transform: rotate(360deg);
-  }
-}
-
-.cheese {
-  z-index: 1;
-  -webkit-animation-name: rotate;
-  -webkit-animation-duration: 1.5s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -webkit-transform-origin: 50% 50%;
-}
-
-.ninja {
-  z-index: 1;
-  -webkit-animation-name: rotate;
-  -webkit-animation-duration: 5s;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-  -webkit-transform-origin: 50% 50%;
-}
-
-.pausedImage {
-  animation-play-state: paused;
-}
-
 body {
     text-align: center;
     background: #343642;
@@ -82,4 +51,35 @@ h1 {
 .button:hover,
 .button:active {
   text-decoration: none;
+}
+
+@-webkit-keyframes rotate {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+.cheese {
+  z-index: 1;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -webkit-transform-origin: 50% 50%;
+}
+
+.ninja {
+  z-index: 1;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -webkit-transform-origin: 50% 50%;
+}
+
+.pausedImage {
+  animation-play-state: paused;
 }
